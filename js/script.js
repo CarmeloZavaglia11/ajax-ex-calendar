@@ -35,9 +35,29 @@ $(document).ready(function(){
 
     var currentDate = moment('2018-01-01');
 
+
     joinD(currentDate);
     joinHolid(currentDate);
 
+    $(".month i:first-child").click(function () {
+        currentDate = currentDate.subtract(1, "M");
+        if (currentDate.year() != 2018) {
+            currentDate = moment("2018-12-01");
+        }
+        $(".container").empty();
+        joinD(currentDate);
+        joinHolid(currentDate);
+      });
+
+    $(".month i:last-child").click(function () {
+        currentDate = currentDate.add(1, "M");
+          if (currentDate.year() != 2018) {
+            currentDate = moment("2018-01-01");
+          }
+        $(".container").empty();
+        joinD(currentDate);
+        joinHolid(currentDate);
+      });
 
 
     // FUNZIONI
